@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Элементы, через заптую
+<input id="input" type="text">
+<button onclick="handleButton()">
+    Посчитать
+</button>
+Отсортировнный
+<input id="output" type="text">
+
+<script>
+
+
+ function handleButton() {
+   const arr = input.value.split(',').map(elem=>+elem)
+   output.value = bubbleSort(arr)
+ }
+
+
+  function bubbleSort(arr) {
+    const to = arr.length - 1;
+    for (let i = 0; i<=to; i++) {
+      for(let j = 0; j<=to - 1; j++) {
+        if(arr[i] > arr[j]) {
+          let temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+    }
+    return arr
+  }
+</script>
+</body>
+</html>
