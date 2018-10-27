@@ -24,20 +24,19 @@
 
   function pickSort(arr) {
     const to = arr.length - 1;
-    const tempArr = arr.slice();
-
     for (let i = 0; i<=to; i++) {
-        let min = Math.min(...tempArr);
-        let minIndex = arr.indexOf(min);
-        deleteFromArrayByValue(tempArr, min)
-        arr[minIndex] = arr[i];
+        let min = arr[i];
+        let minPos = i;
+        for(let j = i; j<=to; j++) {
+          if(arr[j] < min) {
+            min = arr[j]
+            minPos = j
+          }
+        }
+        arr[minPos] = arr[i];
         arr[i] = min;
     }
     return arr
-  }
-
-  function deleteFromArrayByValue(arr, value) {
-      arr.splice(arr.indexOf(value), 1)
   }
 </script>
 </body>
