@@ -1,2 +1,1 @@
-## Первое задние
-npm run run1
+## Ссылка [клик](https://pomkaize.github.io/hackaton1/)
