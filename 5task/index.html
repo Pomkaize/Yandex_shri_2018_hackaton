@@ -7,7 +7,7 @@
 <body>
 <script>
 
-  const nodes = {};
+  let nodes = {};
 
   ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].forEach(z => nodes[z] = {val:z})
 
@@ -19,8 +19,9 @@
   nodes.f.left = nodes.g;
   nodes.f.right = nodes.h;
 
-  const stack = ['a'];
 
+function getStack(nodes, head) {
+  let stack = [head]
   while(stack.length !== 0) {
     let currentStack = stack.slice();
 
@@ -38,6 +39,9 @@
       }
     })
   }
+}
+
+getStack(nodes, 'a');
 
 </script>
 </body>
