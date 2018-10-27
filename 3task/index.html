@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Элементы, через заптую
+<input id="input" type="text">
+<button onclick="handleButton()">
+    Посчитать
+</button>
+Отсортировнный
+<input id="output" type="text">
+
+<script>
+
+
+ function handleButton() {
+   const arr = input.value.split(',').map(elem=>+elem)
+   output.value = insertSort(arr)
+ }
+
+
+  function insertSort(arr) {
+    const to = arr.length - 1;
+    let sortPart = [arr[0]];
+    let unsortPart = arr.slice(1);
+    while (unsortPart.length !== 0) {
+        const currentElement = unsortPart.shift();
+      /* Сразу проверим первый элемент, вставку левее крайнего*/
+      console.log(`sorted`,sortPart, `current`, currentElement)
+      if(sortPart[0] >= currentElement) {
+        sortPart.unshift(currentElement)
+        /* Также проверим последний элемент, вставку правее крайнего */
+      } else if(sortPart[sortPart.length - 1] <= currentElement) {
+        sortPart.push(currentElement);
+      }
+      /* Начинаем вставлять в середину массива */
+    else {
+        sortPart = insertInArray(sortPart, currentElement);
+      }
+    }
+    return sortPart;
+  }
+
+  function insertInArray(array, element) {
+    for(let i=0,to=array.length - 1; i<=to; i++) {
+            if(element > array[i] && element < array[i+1]) {
+              let leftArrPart = array.slice(0,i+1);
+              let rightArrPart = array.slice(i+1);
+              return [...leftArrPart, element, ...rightArrPart]
+            }
+        }
+  }
+</script>
+</body>
+</html>
